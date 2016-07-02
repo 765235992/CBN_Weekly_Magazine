@@ -1,0 +1,15 @@
+platform :ios, '7.0'
+target 'CBNWeeklyMagazine' do
+pod 'SDWebImage'
+pod 'AFNetworking'
+pod 'IQKeyboardManager'
+pod 'MMDrawerController'
+pod 'DKNightVersion'
+pod 'MJRefresh'
+pod 'UMengSocial'
+pod 'MJExtension'
+pod 'YRJSONAdapter'
+pod 'SFFocusViewLayout'
+pod 'SSKeychain'
+
+end
