@@ -132,7 +132,7 @@
         self.newsTitleLabel = [[CBNLabel alloc] initWithFrame:CGRectMake( 10, imageView_Height + 30, screen_Width - 20, 0)];
         _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
-        _newsTitleLabel.font = font_px_Medium(fontSize(44.0,40.0,36.0));
+        _newsTitleLabel.font = font_px_Medium(fontSize(48.0,40.0,36.0));
         
         _newsTitleLabel.lineSpace = 2.0;
         

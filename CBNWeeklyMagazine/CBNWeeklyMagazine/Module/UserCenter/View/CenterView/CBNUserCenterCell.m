@@ -7,7 +7,7 @@
 //
 
 #import "CBNUserCenterCell.h"
-#define user_Center_clearance 12*320/screen_Width
+#define user_Center_clearance 24*320/screen_Width
 
 @interface CBNUserCenterCell ()
 @property (nonatomic, strong) UILabel *titleLabel;

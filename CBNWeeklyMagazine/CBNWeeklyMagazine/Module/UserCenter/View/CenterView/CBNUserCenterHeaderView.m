@@ -7,7 +7,7 @@
 //
 
 #import "CBNUserCenterHeaderView.h"
-#define user_Center_clearance 15*320/screen_Width
+#define user_Center_clearance 24*320/screen_Width
 @interface CBNUserCenterHeaderView ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIButton *searchButton;

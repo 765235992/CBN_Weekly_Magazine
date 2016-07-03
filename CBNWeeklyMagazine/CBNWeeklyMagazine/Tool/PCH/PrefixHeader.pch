@@ -53,7 +53,7 @@
 //屏幕宽高
 #define screen_Width ([UIScreen mainScreen].bounds.size.width)
 #define screen_Height ([UIScreen mainScreen].bounds.size.height)
-#define user_Draw_open_With 0.45*screen_Width
+#define user_Draw_open_With 0.47*screen_Width
 
 //颜色
 //参数格式为：0xFFFFFF

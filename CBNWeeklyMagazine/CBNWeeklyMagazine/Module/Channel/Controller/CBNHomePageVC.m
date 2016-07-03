@@ -161,7 +161,7 @@
     if (!_aTableView) {
         self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height)];
         _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _aTableView.contentInset = UIEdgeInsetsMake(64+28.0*screen_Width/320, 0, 0, 0);
+        _aTableView.contentInset = UIEdgeInsetsMake(64+25.0*screen_Width/320, 0, 0, 0);
         _aTableView.dk_backgroundColorPicker = DKColorPickerWithKey(默认背景颜色);
         _aTableView.delegate = self;
         
@@ -293,7 +293,7 @@
 {
     if (!_headerView) {
         
-        self.headerView = [[CBNRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Width*0.7 )];
+        self.headerView = [[CBNRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Width*0.75 )];
         
         _headerView.sliderView.shufflingView.imageViewDidTapAtIndex = ^(CBNShufflingModel *shufflingModel){
             CBNTextArticleVC *ar = [[CBNTextArticleVC alloc] init];
