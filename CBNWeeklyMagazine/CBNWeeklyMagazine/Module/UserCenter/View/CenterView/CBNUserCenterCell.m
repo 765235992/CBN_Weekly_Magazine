@@ -7,7 +7,7 @@
 //
 
 #import "CBNUserCenterCell.h"
-#define user_Center_clearance 18*320/screen_Width
+#define user_Center_clearance 12*320/screen_Width
 
 @interface CBNUserCenterCell ()
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -37,7 +37,7 @@
         
         self.backgroundColor = [UIColor clearColor];
         
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 2*15*320/screen_Width + _titleLabel.frame.size.height);
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 2*user_Center_clearance + _titleLabel.frame.size.height);
         
         [self addSubview:self.titleLabel];
     }
@@ -50,7 +50,7 @@
         
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(user_Center_clearance, 15*320/screen_Width, self.frame.size.width, 45 *screen_Width/320)];
         
-        _titleLabel.font = font_px_Medium(14);
+        _titleLabel.font = font_px_Regular(fontSize(46,32,36));
         
         _titleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         

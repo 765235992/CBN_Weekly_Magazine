@@ -7,7 +7,7 @@
 //
 
 #import "CBNUserCenterHeaderView.h"
-#define user_Center_clearance 18*320/screen_Width
+#define user_Center_clearance 15*320/screen_Width
 @interface CBNUserCenterHeaderView ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIButton *searchButton;
@@ -40,7 +40,7 @@
         [self addSubview:self.editorImageView];
         [self addSubview:self.lineImageView];
         
-        self.frame = CGRectMake(0, 0, user_Draw_open_With, _lineImageView.frame.origin.y + _lineImageView.frame.size.height+15*320/screen_Width );
+        self.frame = CGRectMake(0, 0, user_Draw_open_With, _lineImageView.frame.origin.y + _lineImageView.frame.size.height +user_Center_clearance );
     }
     
     return self;
@@ -52,7 +52,7 @@
         
         self.searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        _searchButton.frame = CGRectMake(user_Center_clearance, 50, user_Draw_open_With-2*user_Center_clearance, 25*screen_Width/320);
+        _searchButton.frame = CGRectMake(user_Center_clearance, 44, user_Draw_open_With-2*user_Center_clearance, 22*screen_Width/320);
         
         _searchButton.layer.cornerRadius = _searchButton.frame.size.height/2;
         
@@ -92,7 +92,7 @@
         
         self.searchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         
-        _searchLabel.font = font_px_Medium(fontSize(36,32,36));
+        _searchLabel.font = font_px_Medium(fontSize(36,32,28));
         
         _searchLabel.text = @"搜索";
         _searchLabel.dk_textColorPicker = DKColorPickerWithKey(白色背景上的默认标签字体颜色);
@@ -132,11 +132,11 @@
 {
     if (!_nameLabel) {
         
-        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(user_Center_clearance, _photoImageView.frame.size.height + _photoImageView.frame.origin.y + 12*screen_Width/320, user_Draw_open_With-2*user_Center_clearance - [NSString heightForStringFontSize:fontSize(36,32,36)]-5, 0)];
+        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(user_Center_clearance, _photoImageView.frame.size.height + _photoImageView.frame.origin.y + user_Center_clearance, user_Draw_open_With-2*user_Center_clearance - [NSString heightForStringFontSize:fontSize(36,32,36)]-user_Center_clearance, 0)];
         
-        _nameLabel.font = font_px_Medium(fontSize(36,32,36));
+        _nameLabel.font = font_px_Medium(fontSize(46,32,36));
         
-        _nameLabel.text = @"西门飘.西门飘西门飘西门飘西门飘";
+        _nameLabel.text = @"西门飘.西门飘西门飘西门飘西门";
         
         _nameLabel.numberOfLines = 2;
         
@@ -159,7 +159,7 @@
 {
     if (!_editorImageView) {
         
-        self.editorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(_nameLabel.frame.size.width + _nameLabel.frame.origin.x+5, _nameLabel.frame.origin.y+2, [NSString heightForStringFontSize:fontSize(36,32,33)], [NSString heightForStringFontSize:fontSize(36,32,33)])];
+        self.editorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(_nameLabel.frame.size.width + _nameLabel.frame.origin.x+5, _nameLabel.frame.origin.y+2, [NSString heightForStringFontSize:fontSize(46,32,36)], [NSString heightForStringFontSize:fontSize(46,32,36)])];
         
         _editorImageView.backgroundColor = [UIColor redColor];
     }
@@ -170,7 +170,7 @@
 {
     if (!_lineImageView) {
         
-        self.lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(user_Center_clearance, _nameLabel.frame.origin.y + _nameLabel.frame.size.height +  12*screen_Width/320, user_Draw_open_With-2*user_Center_clearance - [NSString heightForStringFontSize:fontSize(36,32,36)]-5, 1)];
+        self.lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(user_Center_clearance, _nameLabel.frame.origin.y + _nameLabel.frame.size.height +  user_Center_clearance*1.5, user_Draw_open_With-2*user_Center_clearance - [NSString heightForStringFontSize:fontSize(36,32,36)]-user_Center_clearance, 1)];
 
         _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(默认分割线颜色);
     }

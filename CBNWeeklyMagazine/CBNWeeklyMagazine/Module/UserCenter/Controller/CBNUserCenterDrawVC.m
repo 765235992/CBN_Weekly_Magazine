@@ -97,7 +97,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  45 *screen_Width/320;
+    
+    CGFloat height = [NSString heightForStringFontSize:fontSize(36,32,36)];
+    return  2*12 *screen_Width/320+height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

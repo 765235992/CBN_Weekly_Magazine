@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "CBNChannelRootVC.h"
-
 #import "CBNUserCenterDrawVC.h"
 #import "LSNavigationController.h"
 #import "CBNDrawerVisualStateManager.h"

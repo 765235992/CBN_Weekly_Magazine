@@ -9,6 +9,12 @@
 #import "CBNBaseNetworkAction.h"
 
 @interface CBNHomePageNewsRequest : CBNBaseNetworkAction
+@property (nonatomic, assign) NSInteger recommendCount;
+/*
+ *  使用单利，因为要全局使用
+ */
++ (CBNHomePageNewsRequest *)sharedInstance;
+
 /*
  *  获取频道请求连接
  */
@@ -17,4 +23,14 @@
  *  获取频道请求参数
  */
 + (NSDictionary *)getHomePageNewsParameters;
+
+/*
+ *  刷新
+ */
+- (void)refreshHomePageNewsFromSeverWith:(NSInteger)page success:(void (^)(NSMutableArray *homePageModelrray,NSMutableArray *sliderArray))homePageModelrray failed:(void (^)(NSString *errorStr))errorStr;
+
+/*
+ *  加载更多
+ */
+- (void)loadMoreHomePageNewsFromSeverWith:(NSInteger)page success:(void (^)(NSMutableArray *homePageModelrray))homePageModelrray failed:(void (^)(NSString *errorStr))errorStr;
 @end

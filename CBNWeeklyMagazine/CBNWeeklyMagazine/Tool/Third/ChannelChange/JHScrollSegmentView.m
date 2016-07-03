@@ -162,8 +162,8 @@
         label.tag = index;
         label.text = title;
         label.dk_textColorPicker = DKColorPickerWithKey(频道切换未选择字体颜色);
-
-        label.font = self.segmentStyle.titleFont;
+        label.font = font_px_Medium(fontSize(36.0,31.0,28.0));
+//        label.font = self.segmentStyle.titleFont;
         label.textAlignment = NSTextAlignmentCenter;
         label.userInteractionEnabled = YES;
         UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleLabelOnClick:)];

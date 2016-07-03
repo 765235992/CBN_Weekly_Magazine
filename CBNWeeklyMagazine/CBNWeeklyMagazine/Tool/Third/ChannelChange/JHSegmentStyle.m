@@ -18,7 +18,7 @@
         self.gradualChangeTitleColor = NO;
         self.showExtraButton = NO;
         self.extraBtnBackgroundImageName = nil;
-        self.scrollLineHeight = 3.0;
+        self.scrollLineHeight = 2.0*screen_Width/320;
         self.scrollLineColor = [UIColor brownColor];
         self.coverBackgroundColor = [UIColor lightGrayColor];
         self.coverCornerRadius = 14.0;

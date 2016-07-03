@@ -80,7 +80,7 @@
         
         self.lefeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        _lefeButton.frame = CGRectMake(10, 25, 30, 30);
+        _lefeButton.frame = CGRectMake(10, 30, 25, 25);
         
         [_lefeButton setImage:[UIImage imageNamed:@"user_Center_Day.png"] forState:UIControlStateNormal];
         
@@ -106,7 +106,7 @@
         
         self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        _rightButton.frame = CGRectMake(screen_Width-40, 25, 30, 30);
+        _rightButton.frame = CGRectMake(screen_Width-40, 30, 25, 25);
         
         [_rightButton setImage:[UIImage imageNamed:@"book_Shop_Day.png"] forState:UIControlStateNormal];
         

@@ -10,5 +10,6 @@
 
 @interface UIColor (CBNColor)
 - (UIImage *)colorImage;
++ (UIColor *)colorWithHexString:(NSString *)color;
 
 @end

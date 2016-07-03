@@ -7,7 +7,7 @@
 //
 
 #import "CBNViewController.h"
-#import "CBNChannelColumnModel.h"
+#import "CBNTextArticleVC.h"
 
 @interface CBNHomePageVC : CBNViewController
 @property (nonatomic, strong) CBNChannelColumnModel *homePageChannelModel;

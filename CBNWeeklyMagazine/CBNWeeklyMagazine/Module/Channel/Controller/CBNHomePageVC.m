@@ -11,14 +11,17 @@
 #import "CBNRecommendHeaderView.h"
 #import "CBNProjectArrayCell.h"
 #import "CBNWebNewsDetailVC.h"
-
+#import "CBNNewsItemModel.h"
+#import "CBNAudioNewsCell.h"
+#import "CBNVideoNewsCell.h"
+#import "CBNNormalNewsCell.h"
+#import "CBNRecommendNewsCell.h"
+#define collection_width (((screen_Width - 45)/4.0)) + 20
 
 @interface CBNHomePageVC ()<UITableViewDelegate,UITableViewDataSource>
-
 @property (nonatomic, strong) UITableView *aTableView;
 @property (nonatomic, strong) CBNRecommendHeaderView *headerView;
 @property (nonatomic, strong) NSMutableArray *sourceArray;
-
 @end
 
 @implementation CBNHomePageVC
@@ -27,7 +30,7 @@
 {
     [super viewDidLoad];
         
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor clearColor];
 
   
     [self setUpTableView];
@@ -42,29 +45,43 @@
     [self.view addSubview:self.aTableView];
     
     _aTableView.tableHeaderView = self.headerView;
+    
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshHomePageDataFromSever)];
     
     // 设置文字
     [header setTitle:@"下拉开始刷新" forState:MJRefreshStateIdle];
+    
     [header setTitle:@"正在刷新" forState:MJRefreshStatePulling];
+    
     [header setTitle:@"正在加载中......" forState:MJRefreshStateRefreshing];
+    
     // 设置字体
-    header.stateLabel.font = font_px_Medium(fontSize(36.0,36.0,36.0));;
-    header.lastUpdatedTimeLabel.font = font_px_Medium(fontSize(32.0,32.0,32.0));;
+    header.stateLabel.font = font_px_Medium(fontSize(36.0,36.0,36.0));
+    
+    header.lastUpdatedTimeLabel.font = font_px_Medium(fontSize(32.0,32.0,32.0));
+    
     // 设置颜色
     header.stateLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
+    
     header.lastUpdatedTimeLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
+    
     // 设置刷新控件
     self.aTableView.mj_header = header;
+    
     [_aTableView.mj_header beginRefreshing];
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreHomePageDataFromSever)];
+    
     [footer setTitle:@" " forState:MJRefreshStateIdle];
+    
     [footer setTitle:@"正在加载更多数据……" forState:MJRefreshStateRefreshing];
+    
     [footer setTitle:@"没有更多数据" forState:MJRefreshStateNoMoreData];
+    
     // 设置字体
-    footer.stateLabel.font = font_px_Medium(fontSize(32.0,32.0,32.0));;
+    footer.stateLabel.font = font_px_Medium(fontSize(32.0,32.0,32.0));
+    
     // 设置颜色
     footer.stateLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
     
@@ -79,38 +96,57 @@
     
     __weak typeof(self) weakSelf = self;
     
-    [CBNHomePageNewsRequest GET:[CBNHomePageNewsRequest getHomePageNewsURL] parameters:[CBNHomePageNewsRequest getHomePageNewsParameters] success:^(id result) {
+    [[CBNHomePageNewsRequest sharedInstance] refreshHomePageNewsFromSeverWith:0 success:^(NSMutableArray *homePageModelrray, NSMutableArray *sliderArray) {
         
-        if ([[result objectForKey:@"Code"] integerValue] == 200) {
+        [self.sourceArray removeAllObjects];
+        
+        NSMutableArray *arr = [[NSMutableArray alloc] init];
+        
+        for (CBNNewsItemModel *tempModel in sliderArray) {
+            CBNShufflingModel *shufflingModel = [[CBNShufflingModel alloc] init];
             
-            [self.sourceArray removeAllObjects];
 
-            [_sourceArray addObjectsFromArray:[[[result objectForKey:@"DataList"] objectForKey:@"List"] objectForKey:@"data"]];
+            shufflingModel.newsTitleStr = tempModel.chapt_title;
+            shufflingModel.newsThumbStr = tempModel.cover_img_big;
+            shufflingModel.index = [tempModel.type integerValue];
             
+            [arr addObject:shufflingModel];
+
         }
+        weakSelf.headerView.sliderView.shufflingView.sourceModelArray = arr;
+        
+        [_sourceArray addObjectsFromArray:homePageModelrray];
+        
         [weakSelf refreshFinished];
+
+    } failed:^(NSString *errorStr) {
         
-    } failed:^(NSError *error) {
-        
+        [weakSelf refreshFinished];
+
     }];
+    
+    
 }
 - (void)refreshFinished
 {
+    
     [_aTableView reloadData];
+    
     [_aTableView.mj_header endRefreshing];
+    
 }
 - (void)loadMoreHomePageDataFromSever
 {
+
     __weak typeof(self) weakSelf = self;
-    
-    [CBNHomePageNewsRequest GET:[CBNHomePageNewsRequest getHomePageNewsURL] parameters:[CBNHomePageNewsRequest getHomePageNewsParameters] success:^(id result) {
-        if ([[result objectForKey:@"Code"] integerValue] == 200) {
-            [_sourceArray addObjectsFromArray:[[[result objectForKey:@"DataList"] objectForKey:@"List"] objectForKey:@"data"]];
-        }
+
+    [[CBNHomePageNewsRequest sharedInstance] loadMoreHomePageNewsFromSeverWith:0 success:^(NSMutableArray *homePageModelrray) {
+        [_sourceArray addObjectsFromArray:homePageModelrray];
         [weakSelf loadMoreFinished];
-        
-    } failed:^(NSError *error) {
-        
+
+    } failed:^(NSString *errorStr) {
+        [weakSelf loadMoreFinished];
+
     }];
 }
 - (void)loadMoreFinished
@@ -124,9 +160,9 @@
 {
     if (!_aTableView) {
         self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height)];
-        
-        _aTableView.contentInset = UIEdgeInsetsMake(64+35.0*screen_Width/320, 0, 0, 0);
-        
+        _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _aTableView.contentInset = UIEdgeInsetsMake(64+28.0*screen_Width/320, 0, 0, 0);
+        _aTableView.dk_backgroundColorPicker = DKColorPickerWithKey(默认背景颜色);
         _aTableView.delegate = self;
         
         _aTableView.dataSource = self;
@@ -143,6 +179,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CBNNewsItemModel *channelModel = [_sourceArray objectAtIndex:indexPath.row];
+    NSLog(@"chaptID %@  issueID %@",channelModel.chapt_id,channelModel.issue_id);
     
     if (indexPath.row == 0) {
         static NSString *identifier = @"CBNProjectArrayCell";
@@ -151,7 +189,6 @@
         __weak typeof(self) weakSelf = self;
         
         if (cell == nil) {
-            CBNLog(@"创建");
             
             cell = [[CBNProjectArrayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             
@@ -161,42 +198,88 @@
                 [weakSelf goToWebNewsDetailVCWithProjectNewsItem:projectModel];
                 
             };
+            
         }
-//        cell.channelNewsModel = channelModel;
-//        
-//        channelModel = cell.channelNewsModel ;
-//        [_sourceArray replaceObjectAtIndex:indexPath.row withObject:channelModel];
-        return cell;
-
-    }
-    static NSString *str = @"da";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
-    
-    if (cell == nil) {
         
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
+        [_sourceArray replaceObjectAtIndex:indexPath.row withObject:channelModel];
+        
+        return cell;
+        
+    }else if ([channelModel.type integerValue] == 2){
+        
+        static NSString *identifier = @"CBNVideoNewsCell";
+        
+        
+        CBNVideoNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            
+            cell = [[CBNVideoNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        
+        cell.newsItemModel = channelModel;
+        
+        return cell;
+        
+    }else if ([channelModel.type integerValue] == 1){
+        static NSString *identifier = @"CBNRecommendNewsCell";
+        
+        
+        CBNRecommendNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            
+            cell = [[CBNRecommendNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            
+        }
+        cell.newsItemModel = channelModel;
+        
+        return cell;
+    }else{
+        static NSString *identifier = @"CBNNormalNewsCell";
+        
+        
+        CBNNormalNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            
+            cell = [[CBNNormalNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            
+        }
+        
+        cell.newsItemModel = channelModel;
+        
+        channelModel = cell.newsItemModel ;
+        
+        [_sourceArray replaceObjectAtIndex:indexPath.row withObject:channelModel];
+        
+        return cell;
+        
     }
-    cell.backgroundColor = [self randomColor];
-    
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        return (((screen_Width - 45)/4.0)) + 20;
-    }
     
-    return 50;
+    if (indexPath.row == 0) {
+        return collection_width/4+15;
+    }
+    CBNNewsItemModel *channelModel = [_sourceArray objectAtIndex:indexPath.row];
+    
+    if (channelModel.height == 0.0 ) {
+        return 100;
+    }
+    return channelModel.height;
+    
+    
 }
--(UIColor *) randomColor
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat hue = ( arc4random() % 256 / 256.0 ); //0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5; // 0.5 to 1.0,away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5; //0.5 to 1.0,away from black
-    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-};
+    CBNTextArticleVC *ar = [[CBNTextArticleVC alloc] init];
+    
+    [self.navigationController pushViewController:ar animated:YES];
+
+}
 - (void)goToWebNewsDetailVCWithProjectNewsItem:(CBNProjectNewsItemModel *)projectNewsItem
 {
     CBNWebNewsDetailVC *webNewsDetailVC = [[CBNWebNewsDetailVC alloc]init];
@@ -210,11 +293,12 @@
 {
     if (!_headerView) {
         
-        self.headerView = [[CBNRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 200 )];
-//        __weak typeof(self) weakSelf = self;
+        self.headerView = [[CBNRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Width*0.7 )];
         
         _headerView.sliderView.shufflingView.imageViewDidTapAtIndex = ^(CBNShufflingModel *shufflingModel){
-
+            CBNTextArticleVC *ar = [[CBNTextArticleVC alloc] init];
+            
+            [self.navigationController pushViewController:ar animated:YES];
         };
         
     }

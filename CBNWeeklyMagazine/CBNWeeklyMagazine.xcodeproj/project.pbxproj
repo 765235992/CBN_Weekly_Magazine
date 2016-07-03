@@ -63,7 +63,6 @@
 		38EE4C5E1D24F31100475197 /* CBNRecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EE4C5D1D24F31100475197 /* CBNRecommendHeaderView.m */; };
 		38EE4C6A1D24F64000475197 /* CBNBaseNetworkAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EE4C691D24F64000475197 /* CBNBaseNetworkAction.m */; };
 		38EE4C6D1D24F68300475197 /* CBNChannelColumnRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EE4C6C1D24F68300475197 /* CBNChannelColumnRequest.m */; };
-		38EE4C721D24FC6800475197 /* CBNChannelColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EE4C711D24FC6800475197 /* CBNChannelColumnModel.m */; };
 		38EE4C741D250DCD00475197 /* ChannelList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38EE4C731D250DCD00475197 /* ChannelList.plist */; };
 		38EE4C7F1D26157800475197 /* article_Down_Arrow_image_Night@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38EE4C751D26157800475197 /* article_Down_Arrow_image_Night@2x.png */; };
 		38EE4C801D26157800475197 /* article_Down_Arrow_image_Night@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38EE4C761D26157800475197 /* article_Down_Arrow_image_Night@3x.png */; };
@@ -105,6 +104,13 @@
 		38FDB7251D20F1BE00642E7C /* UIViewController+LSNavigationBarTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FDB7211D20F1BE00642E7C /* UIViewController+LSNavigationBarTransition.m */; };
 		38FDB7271D20F1DA00642E7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FDB7261D20F1DA00642E7C /* Main.storyboard */; };
 		38FDB72C1D20F2A900642E7C /* CBNTextArticleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FDB72B1D20F2A900642E7C /* CBNTextArticleVC.m */; };
+		784892AC1D2797D100D946CB /* CBNNewsItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 784892AB1D2797D100D946CB /* CBNNewsItemModel.m */; };
+		784892AF1D27981500D946CB /* CBNChannelColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 784892AE1D27981500D946CB /* CBNChannelColumnModel.m */; };
+		784892B81D2905DE00D946CB /* CBNAudioNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 784892B11D2905DE00D946CB /* CBNAudioNewsCell.m */; };
+		784892B91D2905DE00D946CB /* CBNNormalNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 784892B31D2905DE00D946CB /* CBNNormalNewsCell.m */; };
+		784892BA1D2905DE00D946CB /* CBNRecommendNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 784892B51D2905DE00D946CB /* CBNRecommendNewsCell.m */; };
+		784892BB1D2905DE00D946CB /* CBNVideoNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 784892B71D2905DE00D946CB /* CBNVideoNewsCell.m */; };
+		784892BF1D29065400D946CB /* CBNImageAndTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 784892BE1D29065400D946CB /* CBNImageAndTextLabel.m */; };
 		786A33681D215FDA00931FC8 /* UIColor+CBNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 786A33671D215FDA00931FC8 /* UIColor+CBNColor.m */; };
 		786A336B1D21601400931FC8 /* UILabel+CBNLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 786A336A1D21601400931FC8 /* UILabel+CBNLabel.m */; };
 		786A336E1D21604000931FC8 /* NSString+CBNString.m in Sources */ = {isa = PBXBuildFile; fileRef = 786A336D1D21604000931FC8 /* NSString+CBNString.m */; };
@@ -260,8 +266,6 @@
 		38EE4C6B1D24F68300475197 /* CBNChannelColumnRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelColumnRequest.h; sourceTree = "<group>"; };
 		38EE4C6C1D24F68300475197 /* CBNChannelColumnRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelColumnRequest.m; sourceTree = "<group>"; };
 		38EE4C6E1D24F69B00475197 /* CBNURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBNURL.h; sourceTree = "<group>"; };
-		38EE4C701D24FC6800475197 /* CBNChannelColumnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelColumnModel.h; sourceTree = "<group>"; };
-		38EE4C711D24FC6800475197 /* CBNChannelColumnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelColumnModel.m; sourceTree = "<group>"; };
 		38EE4C731D250DCD00475197 /* ChannelList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ChannelList.plist; sourceTree = "<group>"; };
 		38EE4C751D26157800475197 /* article_Down_Arrow_image_Night@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "article_Down_Arrow_image_Night@2x.png"; sourceTree = "<group>"; };
 		38EE4C761D26157800475197 /* article_Down_Arrow_image_Night@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "article_Down_Arrow_image_Night@3x.png"; sourceTree = "<group>"; };
@@ -332,6 +336,20 @@
 		38FDB72A1D20F2A900642E7C /* CBNTextArticleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNTextArticleVC.h; sourceTree = "<group>"; };
 		38FDB72B1D20F2A900642E7C /* CBNTextArticleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNTextArticleVC.m; sourceTree = "<group>"; };
 		3977B2135919075E23C6ECC9 /* Pods-CBNWeeklyMagazine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBNWeeklyMagazine.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBNWeeklyMagazine/Pods-CBNWeeklyMagazine.release.xcconfig"; sourceTree = "<group>"; };
+		784892AA1D2797D100D946CB /* CBNNewsItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNewsItemModel.h; sourceTree = "<group>"; };
+		784892AB1D2797D100D946CB /* CBNNewsItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNewsItemModel.m; sourceTree = "<group>"; };
+		784892AD1D27981500D946CB /* CBNChannelColumnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelColumnModel.h; sourceTree = "<group>"; };
+		784892AE1D27981500D946CB /* CBNChannelColumnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelColumnModel.m; sourceTree = "<group>"; };
+		784892B01D2905DE00D946CB /* CBNAudioNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNAudioNewsCell.h; sourceTree = "<group>"; };
+		784892B11D2905DE00D946CB /* CBNAudioNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNAudioNewsCell.m; sourceTree = "<group>"; };
+		784892B21D2905DE00D946CB /* CBNNormalNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNormalNewsCell.h; sourceTree = "<group>"; };
+		784892B31D2905DE00D946CB /* CBNNormalNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNormalNewsCell.m; sourceTree = "<group>"; };
+		784892B41D2905DE00D946CB /* CBNRecommendNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNRecommendNewsCell.h; sourceTree = "<group>"; };
+		784892B51D2905DE00D946CB /* CBNRecommendNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNRecommendNewsCell.m; sourceTree = "<group>"; };
+		784892B61D2905DE00D946CB /* CBNVideoNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNVideoNewsCell.h; sourceTree = "<group>"; };
+		784892B71D2905DE00D946CB /* CBNVideoNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNVideoNewsCell.m; sourceTree = "<group>"; };
+		784892BD1D29065400D946CB /* CBNImageAndTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNImageAndTextLabel.h; sourceTree = "<group>"; };
+		784892BE1D29065400D946CB /* CBNImageAndTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNImageAndTextLabel.m; sourceTree = "<group>"; };
 		786A33651D215D4200931FC8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		786A33661D215FDA00931FC8 /* UIColor+CBNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CBNColor.h"; sourceTree = "<group>"; };
 		786A33671D215FDA00931FC8 /* UIColor+CBNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CBNColor.m"; sourceTree = "<group>"; };
@@ -608,6 +626,7 @@
 		38EE4BF91D24BFD400475197 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				784892BC1D29065400D946CB /* ImageLabel */,
 				38EE4CB31D264DD200475197 /* ProjectView */,
 				38EE4C581D24F2AF00475197 /* HeaderView */,
 				38EE4BFA1D24BFD400475197 /* BookShopView */,
@@ -664,6 +683,14 @@
 		38EE4C571D24F1E500475197 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				784892B01D2905DE00D946CB /* CBNAudioNewsCell.h */,
+				784892B11D2905DE00D946CB /* CBNAudioNewsCell.m */,
+				784892B21D2905DE00D946CB /* CBNNormalNewsCell.h */,
+				784892B31D2905DE00D946CB /* CBNNormalNewsCell.m */,
+				784892B41D2905DE00D946CB /* CBNRecommendNewsCell.h */,
+				784892B51D2905DE00D946CB /* CBNRecommendNewsCell.m */,
+				784892B61D2905DE00D946CB /* CBNVideoNewsCell.h */,
+				784892B71D2905DE00D946CB /* CBNVideoNewsCell.m */,
 				38EE4CB01D264DA900475197 /* CBNProjectArrayCell.h */,
 				38EE4CB11D264DA900475197 /* CBNProjectArrayCell.m */,
 				38EE4CBA1D264F0A00475197 /* CBNProjectCell.h */,
@@ -708,11 +735,13 @@
 		38EE4C6F1D24FC3C00475197 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				38EE4C701D24FC6800475197 /* CBNChannelColumnModel.h */,
-				38EE4C711D24FC6800475197 /* CBNChannelColumnModel.m */,
+				784892AD1D27981500D946CB /* CBNChannelColumnModel.h */,
+				784892AE1D27981500D946CB /* CBNChannelColumnModel.m */,
 				38EE4C731D250DCD00475197 /* ChannelList.plist */,
 				38EE4CC31D2651CC00475197 /* CBNProjectNewsItemModel.h */,
 				38EE4CC41D2651CC00475197 /* CBNProjectNewsItemModel.m */,
+				784892AA1D2797D100D946CB /* CBNNewsItemModel.h */,
+				784892AB1D2797D100D946CB /* CBNNewsItemModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1017,6 +1046,15 @@
 				38EE4CC71D2656DB00475197 /* CBNWebNewsDetailVC.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		784892BC1D29065400D946CB /* ImageLabel */ = {
+			isa = PBXGroup;
+			children = (
+				784892BD1D29065400D946CB /* CBNImageAndTextLabel.h */,
+				784892BE1D29065400D946CB /* CBNImageAndTextLabel.m */,
+			);
+			path = ImageLabel;
 			sourceTree = "<group>";
 		};
 		786A33641D215D2B00931FC8 /* PCH */ = {
@@ -1608,18 +1646,20 @@
 			files = (
 				38EE4C311D24C03400475197 /* CBNDrawerVisualStateManager.m in Sources */,
 				38EE4CA61D2634AC00475197 /* CBNSetterVC.m in Sources */,
+				784892B91D2905DE00D946CB /* CBNNormalNewsCell.m in Sources */,
 				786A340C1D219E1800931FC8 /* CBNChaptSubTitleCell.m in Sources */,
 				38EE4CAB1D2634E200475197 /* CBNSubscriptionVC.m in Sources */,
 				38FDB72C1D20F2A900642E7C /* CBNTextArticleVC.m in Sources */,
 				38EE4CB21D264DA900475197 /* CBNProjectArrayCell.m in Sources */,
 				38EE4C9B1D26337E00475197 /* CBNUserCenterHeaderView.m in Sources */,
-				38EE4C721D24FC6800475197 /* CBNChannelColumnModel.m in Sources */,
 				786A336B1D21601400931FC8 /* UILabel+CBNLabel.m in Sources */,
 				786A338A1D2164D500931FC8 /* UIView+JHFrame.m in Sources */,
 				786A34141D219E8D00931FC8 /* CBNImageView.m in Sources */,
+				784892BA1D2905DE00D946CB /* CBNRecommendNewsCell.m in Sources */,
 				786A340A1D219E1800931FC8 /* CBNChaptBlockCell.m in Sources */,
 				786A33711D21606C00931FC8 /* NSDate+CBNDate.m in Sources */,
 				38FDB7221D20F1BE00642E7C /* LSInteractionTransition.m in Sources */,
+				784892BB1D2905DE00D946CB /* CBNVideoNewsCell.m in Sources */,
 				786A340B1D219E1800931FC8 /* CBNChaptImageCell.m in Sources */,
 				388C15421D2374E900C8FDBB /* CBNRecommendCollectionAndShareCell.m in Sources */,
 				38EE4C9C1D26337E00475197 /* CBNUserCenterView.m in Sources */,
@@ -1635,6 +1675,7 @@
 				38FDB6D51D20F04200642E7C /* AppDelegate.m in Sources */,
 				786A33881D2164D500931FC8 /* CBNScrollSegmentView.m in Sources */,
 				786A33E91D219D2400931FC8 /* JHCoreTextData.m in Sources */,
+				784892BF1D29065400D946CB /* CBNImageAndTextLabel.m in Sources */,
 				38FDB7251D20F1BE00642E7C /* UIViewController+LSNavigationBarTransition.m in Sources */,
 				388C153A1D236B8B00C8FDBB /* CBNRelatedNewsLayout.m in Sources */,
 				786A33681D215FDA00931FC8 /* UIColor+CBNColor.m in Sources */,
@@ -1642,6 +1683,7 @@
 				38EE4C221D24BFD400475197 /* CBNViewController.m in Sources */,
 				38EE4C271D24BFD400475197 /* CBNFuzzyImageView.m in Sources */,
 				78D4626F1D22DC1800D29B32 /* CBNbookmarksView.m in Sources */,
+				784892AC1D2797D100D946CB /* CBNNewsItemModel.m in Sources */,
 				38E4DF771D20FBBB0024B789 /* UIImage+CBNImage.m in Sources */,
 				38EE4C551D24C60800475197 /* JHScrollSegmentView.m in Sources */,
 				786A33FE1D219D9C00931FC8 /* CBNChaptBlockImageModel.m in Sources */,
@@ -1661,6 +1703,7 @@
 				38EE4CB91D264DD200475197 /* CBNProjectLayout.m in Sources */,
 				38EE4CC81D2656DB00475197 /* CBNWebNewsDetailVC.m in Sources */,
 				388C154B1D23752500C8FDBB /* CBNRelatedNewsCell.m in Sources */,
+				784892B81D2905DE00D946CB /* CBNAudioNewsCell.m in Sources */,
 				786A33781D21644B00931FC8 /* CBNBarBurronItem.m in Sources */,
 				786A33EA1D219D2400931FC8 /* JHCoreTextModle.m in Sources */,
 				786A33CB1D219A9700931FC8 /* CBNExcerptVC.m in Sources */,
@@ -1687,6 +1730,7 @@
 				38EE4C0A1D24BFD400475197 /* CBNHomePageVC.m in Sources */,
 				38EE4C231D24BFD400475197 /* CBNBookShopDrawView.m in Sources */,
 				786A34291D219F5A00931FC8 /* CBNBaseShufflingView.m in Sources */,
+				784892AF1D27981500D946CB /* CBNChannelColumnModel.m in Sources */,
 				38FDB7231D20F1BE00642E7C /* LSNavigationController.m in Sources */,
 				38EE4CB81D264DD200475197 /* CBNProjectBaseView.m in Sources */,
 				786A34271D219F5A00931FC8 /* CBNFileManager.m in Sources */,

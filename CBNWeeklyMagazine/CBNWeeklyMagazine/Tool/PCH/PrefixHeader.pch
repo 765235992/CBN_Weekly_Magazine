@@ -39,6 +39,7 @@
 #import "CBNBaseNetworkAction.h"
 #import "CBNURL.h"
 #import "CBNFileManager.h"
+#import "CBNNewsItemModel.h"
 
 //-------------------打印日志-------------------------
 //DEBUG  模式下打印日志,当前行
